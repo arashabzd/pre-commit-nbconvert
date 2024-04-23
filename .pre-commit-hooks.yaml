@@ -1,0 +1,22 @@
+-   id: nbconvert
+    name: nbconvert
+    description: Jupyter nbconvert command
+    language: system
+    entry: jupyter nbconvert 
+    types: [jupyter]
+    stages: [commit]
+-   id: nbconvert-to-html
+    name: nbconvert-to-html
+    description: Converts jupyter notebooks into HTML
+    language: system
+    entry: jupyter nbconvert --to html
+    args: [--output-dir, reports]
+    types: [jupyter]
+    stages: [commit]
+-   id: nbconvert-clear-output
+    name: nbconvert-clear-output
+    description: Clears output of jupyter notebooks
+    language: system
+    entry: jupyter nbconvert --clear-output --inplace
+    types: [jupyter]
+    stages: [commit]
