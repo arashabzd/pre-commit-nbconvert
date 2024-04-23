@@ -1,5 +1,6 @@
 # pre-commit-nbconvert
 
+Simple pre-commit hooks for jupyter notebooks using nbconvert.
 Currently there are 3 pre-commit hooks available:
 
 1. `nbconvert`: Generic nbconvert command.
