@@ -13,6 +13,14 @@
     types: [jupyter]
     stages: [commit]
 
+-   id: nbconvert-to-md
+    name: nbconvert-to-md
+    description: Converts jupyter notebooks into Markdown
+    language: system
+    entry: jupyter nbconvert --to markdown
+    types: [jupyter]
+    stages: [commit]
+
 -   id: nbconvert-clear-output
     name: nbconvert-clear-output
     description: Clears output of jupyter notebooks
