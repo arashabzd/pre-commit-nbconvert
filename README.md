@@ -2,9 +2,9 @@
 
 Currently there are 3 pre-commit hooks available:
 
-1. `nbconvert`: for generic nbconvert commands.
-2. `nbconvert-to-html`: to convert jupyter notebooks into html format.
-3. `nbconvert-clear-outputs`: to clear notebook outputs.
+1. `nbconvert`: Generic nbconvert command.
+2. `nbconvert-to-html`: Export jupyter notebooks into html format.
+3. `nbconvert-clear-outputs`: Clear notebook outputs.
 
 ## Requirements
 
