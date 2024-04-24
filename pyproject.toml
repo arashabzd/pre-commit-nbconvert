@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pre-commit-nbconvert"
-version = "0.0.1a1"
+version = "0.0.1a2"
 description = "A collection of nbconvert pre-commit hooks for jupyter notebooks."
 authors = ["Arash A <arashabzd@gmail.com>"]
 license = "MIT"

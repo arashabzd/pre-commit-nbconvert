@@ -1,5 +1,4 @@
 import argparse
-from glob import glob
 
 from nbconvert import NotebookExporter
 from nbconvert.nbconvertapp import NbConvertApp
@@ -10,7 +9,7 @@ from traitlets.config import Config
 def parse_args(args=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("-o", "--output-dir", type=str, default="", dest="output_dir")
-    parser.add_argument("filepath", type=str)
+    parser.add_argument("filepath", nargs="+", default=[])
     args = parser.parse_args(args)
     return args
 
@@ -34,7 +33,7 @@ def main(args=None):
     app = NbConvertApp(config=c)
     app.exporter = NotebookExporter(config=c)
     app.writer = FilesWriter(config=c)
-    for fp in glob(args.filepath, recursive=True):
+    for fp in args.filepath:
         app.convert_single_notebook(fp)
 
 
