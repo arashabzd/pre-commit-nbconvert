@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pre-commit-nbconvert"
+version = "0.0.1a0"
+description = "A collection of nbconvert pre-commit hooks for jupyter notebooks."
+authors = ["Arash A <arashabzd@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+nbconvert = "^7.16.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.0"
+
+[tool.poetry.scripts]
+clear-outputs = "pre_commit_nbconvert.clear_outputs:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

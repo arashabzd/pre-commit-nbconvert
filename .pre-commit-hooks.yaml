@@ -5,26 +5,10 @@
     entry: jupyter nbconvert 
     types: [jupyter]
 
--   id: nbconvert-to-html
-    name: nbconvert-to-html
-    description: Converts jupyter notebooks into HTML
-    language: system
-    entry: jupyter nbconvert --to html
-    types: [jupyter]
-    stages: [commit]
-
--   id: nbconvert-to-md
-    name: nbconvert-to-md
-    description: Converts jupyter notebooks into Markdown
-    language: system
-    entry: jupyter nbconvert --to markdown
-    types: [jupyter]
-    stages: [commit]
-
--   id: nbconvert-clear-output
-    name: nbconvert-clear-output
-    description: Clears output of jupyter notebooks
-    language: system
-    entry: jupyter nbconvert --clear-output --inplace
+-   id: clear-outputs
+    name: clear-outputs
+    description: Clears output of jupyter notebooks.
+    entry: clear-outputs
+    language: python
     types: [jupyter]
     stages: [commit]
