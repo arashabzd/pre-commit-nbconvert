@@ -1,4 +1,5 @@
 import argparse
+from glob import glob
 
 from nbconvert import NotebookExporter
 from nbconvert.nbconvertapp import NbConvertApp
@@ -33,7 +34,8 @@ def main(args=None):
     app = NbConvertApp(config=c)
     app.exporter = NotebookExporter(config=c)
     app.writer = FilesWriter(config=c)
-    app.convert_single_notebook(args.filepath)
+    for fp in glob(args.filepath, recursive=True):
+        app.convert_single_notebook(fp)
 
 
 if __name__ == "__main__":
