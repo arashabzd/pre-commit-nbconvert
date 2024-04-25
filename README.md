@@ -28,6 +28,6 @@ Add this to your `.pre-commit-config.yaml`.
     -   id: clear-notebook-outputs
 ```
 
-Available format options are `html` and `markdown`. Set `--output-dir` otherwise reports will generate in the same place as your notebooks. Optionally add output-dir to your `.gitignore`.
+Available format options are `html` and `markdown` (default is `html`). Set `--output-dir` otherwise reports will generate in the same place as your notebooks. Optionally add output-dir to your `.gitignore`.
 
 Dont forget to run `pre-commit install`.
