@@ -7,7 +7,7 @@ This pre-commit hook lets you:
 
 This helps to remove notebook outputs from git repository while saving the output into accessible formats as reports.
 
-Check report examples [here](reports/)
+You can find report examples of the [sample notebook](tests/notebook.ipynb) in [reports](reports/) folder.
 
 ## Dependencies
 
