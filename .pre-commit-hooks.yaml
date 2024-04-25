@@ -5,9 +5,18 @@
     entry: jupyter nbconvert 
     types: [jupyter]
 
--   id: clear-outputs
-    name: clear-outputs
-    description: Clears output of jupyter notebooks.
+-   id: convert-notebooks
+    name: convert-notebooks
+    description: Convert non-cleared notebooks into specified format
+    entry: convert
+    args: [--format=html]
+    language: python
+    types: [jupyter]
+    stages: [commit]
+
+-   id: clear-notebook-outputs
+    name: clear-notebook-outputs
+    description: Clears output of jupyter notebooks
     entry: clear-outputs
     language: python
     types: [jupyter]
