@@ -29,10 +29,10 @@ Add this to your `.pre-commit-config.yaml`.
 
 ```yaml
 -   repo: https://github.com/arashabzd/pre-commit-nbconvert
-    rev: "0.0.1"
+    rev: "0.0.2"
     hooks:
     -   id: convert-notebooks
-        args: [--format=html, --output-dir=reports/html]
+        args: [--format=html, --output-dir=reports]
     -   id: clear-notebook-outputs
 ```
 
