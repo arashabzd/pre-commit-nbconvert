@@ -7,6 +7,8 @@ This pre-commit hook lets you:
 
 This helps to remove notebook outputs from git repository while saving the output into accessible formats as reports.
 
+Check report examples [here](reports/)
+
 ## Dependencies
 
 ### HTML and Markdown reports
