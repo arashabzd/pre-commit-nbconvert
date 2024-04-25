@@ -13,9 +13,11 @@ nbconvert = "^7.16.3"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.7.0"
+pytest = "^8.1.1"
 
 [tool.poetry.scripts]
 clear-outputs = "pre_commit_nbconvert.clear_outputs:main"
+convert = "pre_commit_nbconvert.convert:main"
 
 [build-system]
 requires = ["poetry-core"]
