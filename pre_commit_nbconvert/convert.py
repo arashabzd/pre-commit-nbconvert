@@ -30,6 +30,13 @@ def config_app(format, paths=[], output_dir=""):
         "nbconvert.preprocessors.RegexRemovePreprocessor",
         "nbconvert.preprocessors.ClearMetadataPreprocessor",
     ]
+    c.NotebookExporter.preprocessors = [
+        "nbconvert.preprocessors.RegexRemovePreprocessor",
+        "nbconvert.preprocessors.ClearMetadataPreprocessor",
+    ]
+    c.TemplateExporter.exclude_output_prompt = True
+    c.TemplateExporter.exclude_input = True
+    c.TemplateExporter.exclude_input_prompt = True
     c.RegexRemovePreprocessor.patterns = ["\s*\Z"]
     c.HTMLExporter.enabled = True
     c.FilesWriter.build_directory = output_dir

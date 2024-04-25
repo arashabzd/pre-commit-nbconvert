@@ -10,6 +10,7 @@ This helps to remove notebook outputs from git repository while saving the outpu
 ## Dependencies
 
 ### HTML and Markdown reports
+
 The only dependency is [nbconvert](https://nbconvert.readthedocs.io/en/latest/index.html).
 
 ```bash
@@ -35,7 +36,7 @@ Add this to your `.pre-commit-config.yaml`.
 
 __`convert-notebooks` must be put before `clear-notebook-outputs`__
 
-Available format options are `html` (default), `markdown` and optionally `pdf`. Set `--output-dir` otherwise reports will generate in the same place as your notebooks. Optionally add output-dir to your `.gitignore`. 
+Available format options are `html` (default), `markdown` and optionally `pdf`. Set `--output-dir` otherwise reports will generate in the same place as your notebooks. Optionally add output-dir to your `.gitignore`.
 
 Dont forget to run `pre-commit install`.
 
