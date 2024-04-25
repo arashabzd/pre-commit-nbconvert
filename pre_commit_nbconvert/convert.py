@@ -22,6 +22,15 @@ def config_app(format, paths=[], output_dir=""):
     c.NbConvertApp.notebooks = paths
     c.NbConvertApp.recursive_glob = True
     c.NbConvertApp.use_output_suffix = False
+    c.HTMLExporter.preprocessors = [
+        "nbconvert.preprocessors.RegexRemovePreprocessor",
+        "nbconvert.preprocessors.ClearMetadataPreprocessor",
+    ]
+    c.MarkdownExporter.preprocessors = [
+        "nbconvert.preprocessors.RegexRemovePreprocessor",
+        "nbconvert.preprocessors.ClearMetadataPreprocessor",
+    ]
+    c.RegexRemovePreprocessor.patterns = ["\s*\Z"]
     c.HTMLExporter.enabled = True
     c.FilesWriter.build_directory = output_dir
     app = NbConvertApp(config=c)
