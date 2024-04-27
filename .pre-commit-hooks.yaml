@@ -9,7 +9,7 @@
     name: convert-notebooks
     description: Convert non-cleared notebooks into specified format
     entry: convert
-    args: [--format=html]
+    args: [--format=markdown]
     language: python
     types: [jupyter]
     stages: [commit]

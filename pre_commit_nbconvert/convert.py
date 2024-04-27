@@ -18,27 +18,21 @@ def parse_args(args=None):
 
 def config_app(format, paths=[], output_dir=""):
     c = Config()
+    preprocessors = [
+        "nbconvert.preprocessors.RegexRemovePreprocessor",
+        "nbconvert.preprocessors.ClearMetadataPreprocessor",
+    ]
     c.NbConvertApp.export_format = format
     c.NbConvertApp.notebooks = paths
     c.NbConvertApp.recursive_glob = True
     c.NbConvertApp.use_output_suffix = False
-    c.HTMLExporter.preprocessors = [
-        "nbconvert.preprocessors.RegexRemovePreprocessor",
-        "nbconvert.preprocessors.ClearMetadataPreprocessor",
-    ]
-    c.MarkdownExporter.preprocessors = [
-        "nbconvert.preprocessors.RegexRemovePreprocessor",
-        "nbconvert.preprocessors.ClearMetadataPreprocessor",
-    ]
-    c.NotebookExporter.preprocessors = [
-        "nbconvert.preprocessors.RegexRemovePreprocessor",
-        "nbconvert.preprocessors.ClearMetadataPreprocessor",
-    ]
-    c.TemplateExporter.exclude_output_prompt = True
+    c.HTMLExporter.preprocessors = preprocessors
+    c.MarkdownExporter.preprocessors = preprocessors
+    c.NotebookExporter.preprocessors = preprocessors
     c.TemplateExporter.exclude_input = True
     c.TemplateExporter.exclude_input_prompt = True
+    c.TemplateExporter.exclude_output_prompt = True
     c.RegexRemovePreprocessor.patterns = ["\s*\Z"]
-    c.HTMLExporter.enabled = True
     c.FilesWriter.build_directory = output_dir
     app = NbConvertApp(config=c)
     app.writer = FilesWriter(config=c)
