@@ -9,14 +9,15 @@ from pre_commit_nbconvert.utils import is_clear
 
 def parse_args(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", "--format", type=str, default="html", dest="format")
+    parser.add_argument("-f", "--format", type=str, default="markdown", dest="format")
     parser.add_argument("-o", "--output-dir", type=str, default="", dest="output_dir")
+    parser.add_argument("--no-code", action="store_true")
     parser.add_argument("paths", nargs="+", default=[])
     args = parser.parse_args(args)
     return args
 
 
-def config_app(format, paths=[], output_dir=""):
+def config_app(format, paths, output_dir, no_code):
     c = Config()
     preprocessors = [
         "nbconvert.preprocessors.RegexRemovePreprocessor",
@@ -29,9 +30,10 @@ def config_app(format, paths=[], output_dir=""):
     c.HTMLExporter.preprocessors = preprocessors
     c.MarkdownExporter.preprocessors = preprocessors
     c.NotebookExporter.preprocessors = preprocessors
-    c.TemplateExporter.exclude_input = True
-    c.TemplateExporter.exclude_input_prompt = True
-    c.TemplateExporter.exclude_output_prompt = True
+    if no_code:
+        c.TemplateExporter.exclude_input = True
+        c.TemplateExporter.exclude_input_prompt = True
+        c.TemplateExporter.exclude_output_prompt = True
     c.RegexRemovePreprocessor.patterns = ["\s*\Z"]
     c.FilesWriter.build_directory = output_dir
     app = NbConvertApp(config=c)
@@ -39,16 +41,16 @@ def config_app(format, paths=[], output_dir=""):
     return app
 
 
-def convert(format, paths, output_dir=None):
+def convert(format, paths, output_dir, no_code):
     paths = [path for path in paths if not is_clear(path)]
     if paths:
-        app = config_app(format, paths, output_dir)
+        app = config_app(format, paths, output_dir, no_code)
         app.convert_notebooks()
 
 
 def main(args=None):
     args = parse_args(args)
-    convert(args.format, args.paths, args.output_dir)
+    convert(args.format, args.paths, args.output_dir, args.no_code)
 
 
 if __name__ == "__main__":
