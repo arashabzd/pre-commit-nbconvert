@@ -19,7 +19,7 @@ Add this to your `.pre-commit-config.yaml`.
 
 ```yaml
 -   repo: https://github.com/arashabzd/pre-commit-nbconvert
-    rev: "0.0.3"
+    rev: "0.0.4"
     hooks:
     -   id: convert-notebooks
         args: [--format=markdown, --output-dir=reports]
