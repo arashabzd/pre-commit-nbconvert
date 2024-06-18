@@ -22,7 +22,7 @@ Add this to your `.pre-commit-config.yaml`.
     rev: "0.0.4"
     hooks:
     -   id: convert-notebooks
-        args: [--format=markdown, --output-dir=reports]
+        args: [--format=markdown, --output-dir=reports, --no-code]
     -   id: clear-notebook-outputs
 ```
 
